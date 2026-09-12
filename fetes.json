@@ -3,7 +3,7 @@
     "id": 1,
     "y": 2026,
     "m": 8,
-    "d": 13,
+    "d": 12,
     "name": "BEST SONGS EVER",
     "promoter": "Dj Darian Events",
     "venue": "Vice Nightclub",
@@ -129,7 +129,7 @@
     "id": 10,
     "y": 2026,
     "m": 8,
-    "d": 19,
+    "d": 18,
     "name": "Too Hot To Handle",
     "promoter": "Spade Events♠️",
     "venue": "Harts Cut Chaguaramas",
@@ -143,7 +143,7 @@
     "id": 11,
     "y": 2026,
     "m": 8,
-    "d": 26,
+    "d": 19,
     "name": "VibrantUth Fest 2026",
     "promoter": "Crescent Events",
     "venue": "Marvin Lee Stadium",
@@ -213,15 +213,15 @@
     "id": 16,
     "y": 2026,
     "m": 8,
-    "d": 25,
-    "name": "Courageous Women’s Conference 2026- Grace for the Journey",
-    "promoter": "Courageous Women’s Conference",
-    "venue": "Rock of Jesus Ministry, Safe Haven, Five Cays, Providenciales",
+    "d": 23,
+    "name": "Uncommon 6",
+    "promoter": "Uncommon Events",
+    "venue": "Queens Park Savannah",
     "cat": "other",
     "price": "See ticket link",
     "desc": "",
-    "img": "https://4f14f3f2b2e5fd1c43c0-19fdc616b209d38d8f477bc6e666e66f.ssl.cf1.rackcdn.com/events/courageous-women-s-conference-2026-grace-for-the-journey-280477-7CYUi6p4N3.jpg",
-    "ticketUrl": "https://islandetickets.com/event/CWC2026"
+    "img": "https://4f14f3f2b2e5fd1c43c0-19fdc616b209d38d8f477bc6e666e66f.ssl.cf1.rackcdn.com/events/uncommon-6-280234-4MOiyXPxpU.jpg",
+    "ticketUrl": "https://islandetickets.com/event/Uncommon-6"
   },
   {
     "id": 17,
@@ -241,7 +241,7 @@
     "id": 18,
     "y": 2026,
     "m": 8,
-    "d": 24,
+    "d": 23,
     "name": "SWEAT RAVE",
     "promoter": "For The Girlies",
     "venue": "Fuzion Nightlife Cascadia",
@@ -255,7 +255,7 @@
     "id": 19,
     "y": 2026,
     "m": 8,
-    "d": 24,
+    "d": 23,
     "name": "BACK TO SCHOOL-THE MUSIC ERA",
     "promoter": "Redman Caravan",
     "venue": "Flamingle Cafe",
@@ -269,7 +269,7 @@
     "id": 20,
     "y": 2026,
     "m": 8,
-    "d": 24,
+    "d": 23,
     "name": "Private Jam : Insomnia",
     "promoter": "NXTDOOR",
     "venue": "Gamebusters , Valpark",
@@ -283,7 +283,7 @@
     "id": 21,
     "y": 2026,
     "m": 8,
-    "d": 24,
+    "d": 23,
     "name": "STEAM REPUBLIC",
     "promoter": "Club Vice",
     "venue": "VICE Nightclub",
@@ -297,7 +297,7 @@
     "id": 22,
     "y": 2026,
     "m": 8,
-    "d": 24,
+    "d": 23,
     "name": "Ladies Free Passes",
     "promoter": "Team Knock It",
     "venue": "Rydeus Social Club",
@@ -451,7 +451,7 @@
     "id": 33,
     "y": 2026,
     "m": 8,
-    "d": 25,
+    "d": 24,
     "name": "CLUB 1001",
     "promoter": "The Clubhouse",
     "venue": "Ariapita Ave",
@@ -465,21 +465,7 @@
     "id": 34,
     "y": 2026,
     "m": 8,
-    "d": 26,
-    "name": "Rockaway Barbados Golf 2026",
-    "promoter": "Rockaway Vacay Limited",
-    "venue": "Barbados",
-    "cat": "other",
-    "price": "See ticket link",
-    "desc": "",
-    "img": "https://4f14f3f2b2e5fd1c43c0-19fdc616b209d38d8f477bc6e666e66f.ssl.cf1.rackcdn.com/events/rockaway-barbados-2026-279654-oFLaI3KxOx.jpg",
-    "ticketUrl": "https://islandetickets.com/event/rockawaybimgolf"
-  },
-  {
-    "id": 35,
-    "y": 2026,
-    "m": 8,
-    "d": 26,
+    "d": 25,
     "name": "TTFF/26 Single Industry Event Ticket",
     "promoter": "Trinidad + Tobago Film Festival",
     "venue": "LoftTT",
@@ -490,10 +476,10 @@
     "ticketUrl": "https://islandetickets.com/event/TTFF26-Single-Industry-Event-Ticket"
   },
   {
-    "id": 36,
+    "id": 35,
     "y": 2026,
     "m": 8,
-    "d": 26,
+    "d": 25,
     "name": "TTFF/26 Industry Events Two-Day (All access) pass",
     "promoter": "Trinidad + Tobago Film Festival",
     "venue": "LofTT",
@@ -504,7 +490,7 @@
     "ticketUrl": "https://islandetickets.com/event/TTFF26-Industry-Events-All-Access"
   },
   {
-    "id": 37,
+    "id": 36,
     "y": 2026,
     "m": 8,
     "d": 25,
@@ -518,21 +504,7 @@
     "ticketUrl": "https://islandetickets.com/event/TTFF-26-Industry-Day-Pass"
   },
   {
-    "id": 38,
-    "y": 2026,
-    "m": 8,
-    "d": 25,
-    "name": "ROCK THE BOAT",
-    "promoter": "Rockaway Vacay Limited",
-    "venue": "Barbados",
-    "cat": "other",
-    "price": "See ticket link",
-    "desc": "",
-    "img": "https://4f14f3f2b2e5fd1c43c0-19fdc616b209d38d8f477bc6e666e66f.ssl.cf1.rackcdn.com/events/rock-the-boat-280528-91GKo3usQ9.jpg",
-    "ticketUrl": "https://islandetickets.com/event/rocktheboat"
-  },
-  {
-    "id": 39,
+    "id": 37,
     "y": 2026,
     "m": 8,
     "d": 25,
@@ -546,21 +518,7 @@
     "ticketUrl": "https://islandetickets.com/event/FUN-RUN-GLOW-RUN"
   },
   {
-    "id": 40,
-    "y": 2026,
-    "m": 8,
-    "d": 25,
-    "name": "RED FRIDAY Sunset Yacht Party Miami | Chiefs Kingdom Takeover ️",
-    "promoter": "I AM LEGACI",
-    "venue": "South Beach Lady",
-    "cat": "other",
-    "price": "$75 ",
-    "desc": "",
-    "img": "https://4f14f3f2b2e5fd1c43c0-19fdc616b209d38d8f477bc6e666e66f.ssl.cf1.rackcdn.com/events/red-friday-sunset-yacht-party-miami-chiefs-kingdom-takeover-280252-77HvVqJkUW.jpg",
-    "ticketUrl": "https://islandetickets.com/event/REDFRIDAY"
-  },
-  {
-    "id": 41,
+    "id": 38,
     "y": 2026,
     "m": 8,
     "d": 25,
@@ -574,10 +532,10 @@
     "ticketUrl": "https://islandetickets.com/event/BoatYARD2026"
   },
   {
-    "id": 42,
+    "id": 39,
     "y": 2026,
     "m": 8,
-    "d": 26,
+    "d": 25,
     "name": "Slip Yuh Slide",
     "promoter": "TOXIK EVENTS",
     "venue": "Chaguaramas , chaquacabana",
@@ -588,10 +546,10 @@
     "ticketUrl": "https://islandetickets.com/event/Toxikevents"
   },
   {
-    "id": 43,
+    "id": 40,
     "y": 2026,
     "m": 8,
-    "d": 26,
+    "d": 25,
     "name": "LADY LAVA - MATRIX",
     "promoter": "Ace Night Club",
     "venue": "70 Bonne Aventure Rd, Gasparillo, Trinidad & Tobago",
@@ -602,10 +560,10 @@
     "ticketUrl": "https://islandetickets.com/event/LADY-LAVA-MATRIX"
   },
   {
-    "id": 44,
+    "id": 41,
     "y": 2026,
     "m": 8,
-    "d": 26,
+    "d": 25,
     "name": "MATRIX- LADY LAVA",
     "promoter": "FRENESI",
     "venue": "ACE NIGHTCLUB AND LOUNGE, 70 BONNE ADVENTURE ROAD, GASPARILLO",
@@ -616,10 +574,10 @@
     "ticketUrl": "https://islandetickets.com/event/Matrix"
   },
   {
-    "id": 45,
+    "id": 42,
     "y": 2026,
     "m": 8,
-    "d": 26,
+    "d": 25,
     "name": "Make Love Share Love❤️",
     "promoter": "Nyah`s Entertainment",
     "venue": "Harbour Master",
@@ -630,7 +588,7 @@
     "ticketUrl": "https://islandetickets.com/event/YesNyah"
   },
   {
-    "id": 46,
+    "id": 43,
     "y": 2026,
     "m": 8,
     "d": 26,
@@ -644,7 +602,7 @@
     "ticketUrl": "https://islandetickets.com/event/saltspace"
   },
   {
-    "id": 47,
+    "id": 44,
     "y": 2026,
     "m": 8,
     "d": 26,
@@ -658,7 +616,7 @@
     "ticketUrl": "https://islandetickets.com/event/TTFF26-Industry-Day-Pass-26092026"
   },
   {
-    "id": 48,
+    "id": 45,
     "y": 2026,
     "m": 8,
     "d": 26,
@@ -672,7 +630,7 @@
     "ticketUrl": "https://islandetickets.com/event/RNBRUNCH2026"
   },
   {
-    "id": 49,
+    "id": 46,
     "y": 2026,
     "m": 8,
     "d": 26,
@@ -686,7 +644,7 @@
     "ticketUrl": "https://islandetickets.com/event/YouMeRnB-RoseReverie"
   },
   {
-    "id": 50,
+    "id": 47,
     "y": 2026,
     "m": 8,
     "d": 26,
@@ -700,7 +658,7 @@
     "ticketUrl": "https://islandetickets.com/event/FLX-FEST"
   },
   {
-    "id": 51,
+    "id": 48,
     "y": 2026,
     "m": 8,
     "d": 26,
@@ -714,7 +672,7 @@
     "ticketUrl": "https://islandetickets.com/event/YouMeRnB-RoseReverieTablePackages"
   },
   {
-    "id": 52,
+    "id": 49,
     "y": 2026,
     "m": 8,
     "d": 26,
@@ -728,10 +686,10 @@
     "ticketUrl": "https://islandetickets.com/event/Jus-FriendZs-Ultimate-House-Cooler-Party"
   },
   {
-    "id": 53,
+    "id": 50,
     "y": 2026,
     "m": 8,
-    "d": 27,
+    "d": 26,
     "name": "Hook Up",
     "promoter": "Country Backyard",
     "venue": "COUNTRY BACKYARD",
@@ -742,10 +700,10 @@
     "ticketUrl": "https://islandetickets.com/event/HookUp"
   },
   {
-    "id": 54,
+    "id": 51,
     "y": 2026,
     "m": 8,
-    "d": 27,
+    "d": 26,
     "name": "FAHRENHEIT",
     "promoter": "Temperature The Band",
     "venue": "Crown Street Tacarigua",
@@ -756,7 +714,7 @@
     "ticketUrl": "https://islandetickets.com/event/Fahrenheit"
   },
   {
-    "id": 55,
+    "id": 52,
     "y": 2026,
     "m": 8,
     "d": 26,
@@ -770,10 +728,10 @@
     "ticketUrl": "https://islandetickets.com/event/vicexjouvert"
   },
   {
-    "id": 56,
+    "id": 53,
     "y": 2026,
     "m": 8,
-    "d": 27,
+    "d": 26,
     "name": "Retro Republic",
     "promoter": "DJ KYLE PRYME EVENTS",
     "venue": "The Lobby Bar & Lounge",
@@ -784,10 +742,10 @@
     "ticketUrl": "https://islandetickets.com/event/RetroRepublic"
   },
   {
-    "id": 57,
+    "id": 54,
     "y": 2026,
     "m": 8,
-    "d": 27,
+    "d": 26,
     "name": "100 DEGREES OF OLD SCHOOL",
     "promoter": "Rhythm Entertainment",
     "venue": "ROCK BACK BY THE BAY - CHAGUARAMAS",
@@ -798,10 +756,10 @@
     "ticketUrl": "https://islandetickets.com/event/100degreesofonldschool"
   },
   {
-    "id": 58,
+    "id": 55,
     "y": 2026,
     "m": 8,
-    "d": 27,
+    "d": 26,
     "name": "Unspoken Intentions",
     "promoter": "Alternative Promotions TT",
     "venue": "TBA",
@@ -812,10 +770,10 @@
     "ticketUrl": "https://islandetickets.com/event/upspokenintentions"
   },
   {
-    "id": 59,
+    "id": 56,
     "y": 2026,
     "m": 8,
-    "d": 27,
+    "d": 26,
     "name": "BikiniLine Fantasy Island",
     "promoter": "Short skirt",
     "venue": "Harbour Master",
@@ -826,10 +784,10 @@
     "ticketUrl": "https://islandetickets.com/event/Fantasy-Island"
   },
   {
-    "id": 60,
+    "id": 57,
     "y": 2026,
     "m": 8,
-    "d": 27,
+    "d": 26,
     "name": "fuzhUNIghts",
     "promoter": "Team Echelon",
     "venue": "Ace Nightclub & Lounge",
@@ -840,7 +798,7 @@
     "ticketUrl": "https://islandetickets.com/event/fuzhun"
   },
   {
-    "id": 61,
+    "id": 58,
     "y": 2026,
     "m": 8,
     "d": 27,
@@ -854,7 +812,7 @@
     "ticketUrl": "https://islandetickets.com/event/JOOVAY"
   },
   {
-    "id": 62,
+    "id": 59,
     "y": 2026,
     "m": 8,
     "d": 27,
@@ -868,7 +826,7 @@
     "ticketUrl": "https://islandetickets.com/event/Sweatnplaypaddle"
   },
   {
-    "id": 63,
+    "id": 60,
     "y": 2026,
     "m": 8,
     "d": 27,
@@ -882,7 +840,7 @@
     "ticketUrl": "https://islandetickets.com/event/FOESTreasureHunt"
   },
   {
-    "id": 64,
+    "id": 61,
     "y": 2026,
     "m": 8,
     "d": 27,
@@ -896,7 +854,7 @@
     "ticketUrl": "https://islandetickets.com/event/REVOLTT"
   },
   {
-    "id": 65,
+    "id": 62,
     "y": 2026,
     "m": 8,
     "d": 27,
@@ -910,7 +868,7 @@
     "ticketUrl": "https://islandetickets.com/event/fetich"
   },
   {
-    "id": 66,
+    "id": 63,
     "y": 2026,
     "m": 8,
     "d": 27,
@@ -924,7 +882,7 @@
     "ticketUrl": "https://islandetickets.com/event/fof300"
   },
   {
-    "id": 67,
+    "id": 64,
     "y": 2026,
     "m": 8,
     "d": 27,
@@ -938,7 +896,7 @@
     "ticketUrl": "https://islandetickets.com/event/868-wrestling-academy-backbreaker-to-sch"
   },
   {
-    "id": 68,
+    "id": 65,
     "y": 2026,
     "m": 8,
     "d": 27,
@@ -952,7 +910,7 @@
     "ticketUrl": "https://islandetickets.com/event/DRS-Valpark-Shopping-Mall"
   },
   {
-    "id": 69,
+    "id": 66,
     "y": 2026,
     "m": 8,
     "d": 27,
@@ -966,7 +924,7 @@
     "ticketUrl": "https://islandetickets.com/event/SUNSET-SECRET"
   },
   {
-    "id": 70,
+    "id": 67,
     "y": 2026,
     "m": 8,
     "d": 27,
@@ -980,7 +938,7 @@
     "ticketUrl": "https://islandetickets.com/event/GuayatoGhana"
   },
   {
-    "id": 71,
+    "id": 68,
     "y": 2026,
     "m": 8,
     "d": 27,
@@ -994,7 +952,7 @@
     "ticketUrl": "https://islandetickets.com/event/jazzd2u"
   },
   {
-    "id": 72,
+    "id": 69,
     "y": 2026,
     "m": 8,
     "d": 27,
@@ -1008,9 +966,9 @@
     "ticketUrl": "https://islandetickets.com/event/TTVDRCNL"
   },
   {
-    "id": 73,
+    "id": 70,
     "y": 2026,
-    "m": 9,
+    "m": 8,
     "d": 1,
     "name": "RISE 2",
     "promoter": "Ka-I-Ba Productions",
@@ -1022,10 +980,10 @@
     "ticketUrl": "https://islandetickets.com/event/RISE-2"
   },
   {
-    "id": 74,
+    "id": 71,
     "y": 2026,
-    "m": 9,
-    "d": 4,
+    "m": 8,
+    "d": 2,
     "name": "Beyond The Diagnosis- Finding your Village",
     "promoter": "Autistically Speaking with Josie and Andre & Friends",
     "venue": "The Samaan Estate",
@@ -1036,9 +994,9 @@
     "ticketUrl": "https://islandetickets.com/event/Beyondthediagnosis"
   },
   {
-    "id": 75,
+    "id": 72,
     "y": 2026,
-    "m": 9,
+    "m": 8,
     "d": 2,
     "name": "SOLIDARITY with Renée Fortune & Friends",
     "promoter": "KB MUSIC GLOBAL",
@@ -1050,9 +1008,9 @@
     "ticketUrl": "https://islandetickets.com/event/SolidaritywithRenee"
   },
   {
-    "id": 76,
+    "id": 73,
     "y": 2026,
-    "m": 9,
+    "m": 8,
     "d": 3,
     "name": "Wet And Wild Bus Ride Pt.2",
     "promoter": "Jds promotion",
@@ -1064,9 +1022,9 @@
     "ticketUrl": "https://islandetickets.com/event/Wet-and-wild-pt2"
   },
   {
-    "id": 77,
+    "id": 74,
     "y": 2026,
-    "m": 9,
+    "m": 8,
     "d": 3,
     "name": "SUNKISS",
     "promoter": "Treasures mas",
@@ -1078,10 +1036,10 @@
     "ticketUrl": "https://islandetickets.com/event/TTGBP-and-Treasures"
   },
   {
-    "id": 78,
+    "id": 75,
     "y": 2026,
-    "m": 9,
-    "d": 4,
+    "m": 8,
+    "d": 3,
     "name": "Best Little Whorehouse In Guapo - CLR",
     "promoter": "CPR Productions",
     "venue": "Cipriani College - Valsayn",
@@ -1092,10 +1050,10 @@
     "ticketUrl": "https://islandetickets.com/event/BestLittleWhorehouseInGuapoCLR"
   },
   {
-    "id": 79,
+    "id": 76,
     "y": 2026,
-    "m": 9,
-    "d": 4,
+    "m": 8,
+    "d": 3,
     "name": "STAR TREK - Return of The Aliens",
     "promoter": "Slicky Party 2026",
     "venue": "Carnival City Ultra Lounge",
@@ -1106,10 +1064,10 @@
     "ticketUrl": "https://islandetickets.com/event/STARTREK"
   },
   {
-    "id": 80,
+    "id": 77,
     "y": 2026,
-    "m": 9,
-    "d": 4,
+    "m": 8,
+    "d": 3,
     "name": "AntiSEApate",
     "promoter": "BeInsported",
     "venue": "Harbour Master",
@@ -1118,5 +1076,47 @@
     "desc": "",
     "img": "https://4f14f3f2b2e5fd1c43c0-19fdc616b209d38d8f477bc6e666e66f.ssl.cf1.rackcdn.com/events/antiseapate-280392-ftLuSntuFa.jpg",
     "ticketUrl": "https://islandetickets.com/event/Take7"
+  },
+  {
+    "id": 78,
+    "y": 2026,
+    "m": 8,
+    "d": 3,
+    "name": "No Man’s Land",
+    "promoter": "Libertée Events",
+    "venue": "Fusion Night Club",
+    "cat": "other",
+    "price": "See ticket link",
+    "desc": "No Man’s Land Date: October 3rd Dress-code : Pajamas•Loungewear•Lingerie NO MEN ALLOWED",
+    "img": "https://4f14f3f2b2e5fd1c43c0-19fdc616b209d38d8f477bc6e666e66f.ssl.cf1.rackcdn.com/events/no-man-s-land-280483-vT42alriY3.jpg",
+    "ticketUrl": "https://islandetickets.com/event/Liberteeevents"
+  },
+  {
+    "id": 79,
+    "y": 2026,
+    "m": 8,
+    "d": 3,
+    "name": "ROCK THE BOAT: All Black Midnight Cruise Saturday October 3rd",
+    "promoter": "I AM LEGACI",
+    "venue": "Spirit of Cincinnati",
+    "cat": "boat",
+    "price": "$39.99",
+    "desc": "",
+    "img": "https://4f14f3f2b2e5fd1c43c0-19fdc616b209d38d8f477bc6e666e66f.ssl.cf1.rackcdn.com/events/rock-the-boat-all-black-midnight-cruise-saturday-october-3rd-280231-CffkuB5bQK.jpg",
+    "ticketUrl": "https://islandetickets.com/event/rocktheboatcincy1"
+  },
+  {
+    "id": 80,
+    "y": 2026,
+    "m": 8,
+    "d": 3,
+    "name": "Dream - Shangri La",
+    "promoter": "Mighty Krush Entertainment",
+    "venue": "Shaw Park Complex, Tobago.",
+    "cat": "other",
+    "price": "See ticket link",
+    "desc": "",
+    "img": "https://4f14f3f2b2e5fd1c43c0-19fdc616b209d38d8f477bc6e666e66f.ssl.cf1.rackcdn.com/events/dream-shangri-la-280257-8CeqzK673E.jpg",
+    "ticketUrl": "https://islandetickets.com/event/DreamShangri-La"
   }
 ]
