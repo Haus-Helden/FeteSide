@@ -49,17 +49,6 @@ async function fetchText(url){
   return await res.text();
 }
 
-// Turn "Sat 6th February , 2027" -> {y:2027, m:1, d:6}   (used on individual event pages)
-function parseLongDate(text){
-  const m = text.match(/(\d{1,2})(?:st|nd|rd|th)?\s+([A-Za-z]+)\s*,?\s*(\d{4})/);
-  if(!m) return null;
-  const day = parseInt(m[1], 10);
-  const monthIdx = MONTHS.indexOf(m[2].slice(0,3).toLowerCase());
-  const year = parseInt(m[3], 10);
-  if(monthIdx === -1) return null;
-  return { y: year, m: monthIdx, d: day };
-}
-
 // Guess a category from the event name + description, since the source
 // site doesn't tag categories the way our app does.
 function inferCategory(name, desc){
@@ -77,36 +66,57 @@ function inferCategory(name, desc){
 // ---------- want events actually happening in Trinidad & Tobago. ----------
 
 // Known T&T areas/venue keywords — expand this list as you spot real local
-// venues that get missed.
+// venues that get missed. Includes recurring venue names, not just towns.
 const TT_KEYWORDS = [
   'trinidad', 'tobago', 'port of spain', 'san fernando', 'chaguanas',
   'arima', 'point fortin', 'chaguaramas', 'diego martin', 'trincity',
   'movietowne', 'woodbrook', 'st. james', 'st james', 'arouca', 'couva',
   'siparia', 'penal', 'sangre grande', 'tunapuna', 'valsayn', 'maraval',
   'petit valley', 'westmoorings', 'carenage', 'laventille', 'barataria',
-  'curepe', 'st augustine', 'queen\'s park savannah', 'skinner park',
-  'camp ogden', 'ariapita', 'woodford square', 'nelson mandela park'
+  'curepe', 'st augustine', 'st. augustine', 'queen\'s park savannah',
+  'queens park savannah', 'skinner park', 'camp ogden', 'ariapita',
+  'woodford square', 'nelson mandela park', 'harbour master', 'harbor master',
+  'ocean pelican', 'chaquacabana', 'chaquacabana', 'centre of excellence',
+  'center of excellence', 'hart\'s cut', 'harts cut', 'anchorage',
+  'valpark', 'x lounge', 'vice nightclub', 'skinner park', 'queen\'s hall',
+  'queens hall', 'napa', 'sapa', 'hasely crawford', 'performing arts (napa)',
+  'performing arts (sapa)', 'gasparillo', 'cocorite', 'debe', 'talparo',
+  'cumuto', 'longdenville', 'mayaro', 'st. anns', 'st anns', 'moka',
+  'mt. lambert', 'toco', 'cunupia', 'macoya', 'cascadia', 'la romaine',
+  'gulf city', 'crown point', 'scarborough', 'bacolet', 'buccoo',
+  'pigeon point', 'lowlands', 'mount irvine', 'bon accord'
 ];
 
 // Common diaspora/foreign markers — if any of these show up, it's almost
 // certainly NOT a Trinidad event, regardless of what else matches.
 const FOREIGN_KEYWORDS = [
-  'toronto', 'brampton', 'mississauga', 'scarborough', 'ajax', 'ontario',
-  'brooklyn', 'new york', 'nyc', 'queens', 'manhattan', 'bronx',
-  'miami', 'orlando', 'florida', 'atlanta', 'houston', 'texas',
-  'london', 'uk', 'united kingdom', 'birmingham', 'manchester',
-  'caribana', 'notting hill'
+  'toronto', 'brampton', 'mississauga', 'scarborough, on', 'ajax, on', 'ontario',
+  'brooklyn', 'new york', 'nyc', 'queens,', 'manhattan', 'bronx',
+  'miami', 'orlando', 'florida', 'fort lauderdale', 'davie, fl', 'davie fl',
+  'atlanta', 'houston', 'texas', 'boston', 'rowes wharf', 'new orleans',
+  'bayou classic', 'south beach', 'biscayne',
+  'london', 'united kingdom', 'birmingham', 'manchester',
+  'caribana', 'notting hill',
+  'barbados', 'providenciales', 'turks and caicos', 'turks & caicos'
 ];
 
-function isTrinidadEvent(venue){
-  const text = venue.toLowerCase();
-  if(FOREIGN_KEYWORDS.some(kw => text.includes(kw))) return false;
-  if(TT_KEYWORDS.some(kw => text.includes(kw))) return true;
-  // Ambiguous — venue name doesn't clearly match either list. We include
-  // it by default (better to catch a real local fete than silently drop
-  // it), but flag it so you can check the run log and, if it turns out
-  // to be foreign, add its city to FOREIGN_KEYWORDS above.
-  console.warn(`  ? Couldn't confirm location for venue "${venue}" — included by default, please verify.`);
+// Checks the VENUE first (ground truth for where the event actually is),
+// and only falls back to the event NAME if the venue itself is ambiguous.
+// This matters because Trinidad fetes sometimes use foreign city names as
+// party THEMES (e.g. "Miami Beach Blue" happening in Chaguaramas) — so a
+// name-first check would wrongly reject real local events.
+function isTrinidadEvent(name, venue){
+  const venueText = venue.toLowerCase();
+  if(FOREIGN_KEYWORDS.some(kw => venueText.includes(kw))) return false;
+  if(TT_KEYWORDS.some(kw => venueText.includes(kw))) return true;
+
+  // Venue didn't clearly say either way — check the event name next.
+  const nameText = name.toLowerCase();
+  if(FOREIGN_KEYWORDS.some(kw => nameText.includes(kw))) return false;
+  if(TT_KEYWORDS.some(kw => nameText.includes(kw))) return true;
+
+  // Still ambiguous — include by default but flag it for manual review.
+  console.warn(`  ? Couldn't confirm location for "${name}" @ "${venue}" — included by default, please verify.`);
   return true;
 }
 
@@ -161,7 +171,7 @@ async function getEventList(){
     const [, name, promoter, venue] = detailMatch;
     if(!name || !marker.url) continue;
 
-    if(!isTrinidadEvent(venue.trim())){
+    if(!isTrinidadEvent(name.trim(), venue.trim())){
       console.log(`  x Skipping non-Trinidad event: "${name.trim()}" @ ${venue.trim()}`);
       continue;
     }
@@ -193,13 +203,16 @@ async function enrichEvent(basicEvent){
     const descMatch = html.match(/Description\s*<\/h[1-6]>\s*([\s\S]{0,600}?)(?:##|<h[1-6])/i);
     const priceMatch = html.match(/\$\s?[\d,]+(\.\d{2})?\s?(USD|TTD)?/i);
 
-    // If the event page states a fuller date, prefer it (catches cases
-    // where the homepage's day-only listing loses track of the month).
-    const fullDate = parseLongDate(stripTags(html));
+    // NOTE: we intentionally do NOT re-derive the date from this page.
+    // An earlier version scanned the whole page for any date-shaped text
+    // as a "safety net," but that blind scan could latch onto an
+    // unrelated number/word/year pattern anywhere on the page and
+    // silently overwrite the correct date already tracked from the
+    // homepage's month headings. The homepage tracking is reliable on
+    // its own — trust it, don't second-guess it here.
 
     return {
       ...basicEvent,
-      ...(fullDate || {}),
       img: imgMatch ? imgMatch[1] : null,
       desc: descMatch ? stripTags(descMatch[1]).slice(0, 300) : '',
       price: priceMatch ? priceMatch[0] : 'See ticket link'
