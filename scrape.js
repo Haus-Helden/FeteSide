@@ -50,6 +50,19 @@ async function fetchText(url){
   return await res.text();
 }
 
+// Pulls the date directly from the event's own page via its JSON-LD
+// structured data (the "startDate" field event platforms embed for
+// Google's event search results). This is far more reliable than the
+// homepage's month headers, which may be added dynamically by
+// JavaScript that our plain fetch() never executes — meaning events
+// under later month headers (Nov, Dec, Jan, Feb...) can silently
+// inherit whatever month was last seen, which is a real bug we hit.
+function extractStructuredDate(html){
+  const m = html.match(/"startDate"\s*:\s*"(\d{4})-(\d{2})-(\d{2})/);
+  if(!m) return null;
+  return { y: parseInt(m[1],10), m: parseInt(m[2],10) - 1, d: parseInt(m[3],10) };
+}
+
 // Guess a category from the event name + description, since the source
 // site doesn't tag categories the way our app does.
 function inferCategory(name, desc){
@@ -185,8 +198,20 @@ async function enrichEvent(basicEvent){
     const descMatch = html.match(/Description\s*<\/h[1-6]>\s*([\s\S]{0,600}?)(?:##|<h[1-6])/i);
     const priceMatch = html.match(/\$\s?[\d,]+(\.\d{2})?\s?(USD|TTD)?/i);
 
+    // Prefer the event page's own structured date if we can find one —
+    // see the note on extractStructuredDate() above for why this matters
+    // (the homepage's month headers can be JS-rendered and silently
+    // missing for later months, which caused a real bug here before).
+    const structuredDate = extractStructuredDate(html);
+    if(structuredDate){
+      console.log(`    date confirmed from event page: ${structuredDate.y}-${structuredDate.m+1}-${structuredDate.d}`);
+    } else {
+      console.warn(`    ! no structured date found on page — keeping homepage-derived date (${basicEvent.y}-${basicEvent.m+1}-${basicEvent.d}), please spot-check this one`);
+    }
+
     return {
       ...basicEvent,
+      ...(structuredDate || {}),
       img: imgMatch ? imgMatch[1] : null,
       desc: descMatch ? stripTags(descMatch[1]).slice(0, 300) : '',
       price: priceMatch ? priceMatch[0] : 'See ticket link'
