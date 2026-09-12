@@ -72,6 +72,44 @@ function inferCategory(name, desc){
   return 'other';
 }
 
+// ---------- geo filter: sites like this often list diaspora Carnival ----------
+// ---------- events too (Toronto, Brooklyn, Miami, London, etc). We only ----------
+// ---------- want events actually happening in Trinidad & Tobago. ----------
+
+// Known T&T areas/venue keywords — expand this list as you spot real local
+// venues that get missed.
+const TT_KEYWORDS = [
+  'trinidad', 'tobago', 'port of spain', 'san fernando', 'chaguanas',
+  'arima', 'point fortin', 'chaguaramas', 'diego martin', 'trincity',
+  'movietowne', 'woodbrook', 'st. james', 'st james', 'arouca', 'couva',
+  'siparia', 'penal', 'sangre grande', 'tunapuna', 'valsayn', 'maraval',
+  'petit valley', 'westmoorings', 'carenage', 'laventille', 'barataria',
+  'curepe', 'st augustine', 'queen\'s park savannah', 'skinner park',
+  'camp ogden', 'ariapita', 'woodford square', 'nelson mandela park'
+];
+
+// Common diaspora/foreign markers — if any of these show up, it's almost
+// certainly NOT a Trinidad event, regardless of what else matches.
+const FOREIGN_KEYWORDS = [
+  'toronto', 'brampton', 'mississauga', 'scarborough', 'ajax', 'ontario',
+  'brooklyn', 'new york', 'nyc', 'queens', 'manhattan', 'bronx',
+  'miami', 'orlando', 'florida', 'atlanta', 'houston', 'texas',
+  'london', 'uk', 'united kingdom', 'birmingham', 'manchester',
+  'caribana', 'notting hill'
+];
+
+function isTrinidadEvent(venue){
+  const text = venue.toLowerCase();
+  if(FOREIGN_KEYWORDS.some(kw => text.includes(kw))) return false;
+  if(TT_KEYWORDS.some(kw => text.includes(kw))) return true;
+  // Ambiguous — venue name doesn't clearly match either list. We include
+  // it by default (better to catch a real local fete than silently drop
+  // it), but flag it so you can check the run log and, if it turns out
+  // to be foreign, add its city to FOREIGN_KEYWORDS above.
+  console.warn(`  ? Couldn't confirm location for venue "${venue}" — included by default, please verify.`);
+  return true;
+}
+
 // ---------- step 1: pull the list of upcoming events from the homepage ----------
 
 async function getEventList(){
@@ -122,6 +160,11 @@ async function getEventList(){
 
     const [, name, promoter, venue] = detailMatch;
     if(!name || !marker.url) continue;
+
+    if(!isTrinidadEvent(venue.trim())){
+      console.log(`  x Skipping non-Trinidad event: "${name.trim()}" @ ${venue.trim()}`);
+      continue;
+    }
 
     events.push({
       url: marker.url.startsWith('http') ? marker.url : new URL(marker.url, SOURCE_HOME).href,
