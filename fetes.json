@@ -248,7 +248,7 @@
     "cat": "other",
     "price": "See ticket link",
     "desc": "",
-    "img": "https://4f14f3f2b2e5fd1c43c0-19fdc616b209d38d8f477bc6e666e66f.ssl.cf1.rackcdn.com/events/freaky-friday-280626-Y34aUAOcvG.jpg",
+    "img": "https://4f14f3f2b2e5fd1c43c0-19fdc616b209d38d8f477bc6e666e66f.ssl.cf1.rackcdn.com/events/freaky-friday-280626-6pg6F33pPR.jpg",
     "ticketUrl": "https://islandetickets.com/event/FreakyFridayEvents"
   },
   {
@@ -2026,7 +2026,7 @@
     "cat": "other",
     "price": "See ticket link",
     "desc": "",
-    "img": "https://4f14f3f2b2e5fd1c43c0-19fdc616b209d38d8f477bc6e666e66f.ssl.cf1.rackcdn.com/events/carnival-chasers-x-blush-carnival-280987-N0ZPFYcM5o.jpg",
+    "img": "https://4f14f3f2b2e5fd1c43c0-19fdc616b209d38d8f477bc6e666e66f.ssl.cf1.rackcdn.com/events/carnival-chasers-x-blush-carnival-280987-xztQU5KQ6o.jpg",
     "ticketUrl": "https://islandetickets.com/event/carnivalchasers"
   },
   {
@@ -2257,6 +2257,20 @@
     "id": 162,
     "y": 2026,
     "m": 10,
+    "d": 4,
+    "name": "Event Platform Wallet Protection",
+    "promoter": "Abraham Pearce",
+    "venue": "United States",
+    "cat": "other",
+    "price": "See ticket link",
+    "desc": "",
+    "img": "https://4f14f3f2b2e5fd1c43c0-19fdc616b209d38d8f477bc6e666e66f.ssl.cf1.rackcdn.com/events/event-platform-wallet-protection-281034-s3VEFPucoQ.jpg",
+    "ticketUrl": "https://islandetickets.com/event/httpsfreezvoncomenblogvoip-solutionsvirt"
+  },
+  {
+    "id": 163,
+    "y": 2026,
+    "m": 10,
     "d": 6,
     "name": "Chef's Table- Wine Pairing",
     "promoter": "Titan Hospitality",
@@ -2268,7 +2282,7 @@
     "ticketUrl": "https://islandetickets.com/event/Chefs-Table"
   },
   {
-    "id": 163,
+    "id": 164,
     "y": 2026,
     "m": 10,
     "d": 6,
@@ -2282,7 +2296,7 @@
     "ticketUrl": "https://islandetickets.com/event/WIRED-ENCORE-SCAI-FRIDAY"
   },
   {
-    "id": 164,
+    "id": 165,
     "y": 2026,
     "m": 10,
     "d": 6,
@@ -2296,7 +2310,7 @@
     "ticketUrl": "https://islandetickets.com/event/All-hands-on-deck"
   },
   {
-    "id": 165,
+    "id": 166,
     "y": 2026,
     "m": 10,
     "d": 6,
@@ -2310,7 +2324,7 @@
     "ticketUrl": "https://islandetickets.com/event/NirvanaNoPhones"
   },
   {
-    "id": 166,
+    "id": 167,
     "y": 2026,
     "m": 10,
     "d": 7,
@@ -2324,7 +2338,7 @@
     "ticketUrl": "https://islandetickets.com/event/Gasparee-Caves-Monos-Island-Tour"
   },
   {
-    "id": 167,
+    "id": 168,
     "y": 2026,
     "m": 10,
     "d": 7,
@@ -2338,7 +2352,7 @@
     "ticketUrl": "https://islandetickets.com/event/Liming-with-Legends"
   },
   {
-    "id": 168,
+    "id": 169,
     "y": 2026,
     "m": 10,
     "d": 7,
@@ -2352,7 +2366,7 @@
     "ticketUrl": "https://islandetickets.com/event/AnonymousRoom21"
   },
   {
-    "id": 169,
+    "id": 170,
     "y": 2026,
     "m": 10,
     "d": 7,
@@ -2366,7 +2380,7 @@
     "ticketUrl": "https://islandetickets.com/event/28grams"
   },
   {
-    "id": 170,
+    "id": 171,
     "y": 2026,
     "m": 10,
     "d": 7,
@@ -2380,7 +2394,7 @@
     "ticketUrl": "https://islandetickets.com/event/DJ-RENE-Motivation-Through-Music"
   },
   {
-    "id": 171,
+    "id": 172,
     "y": 2026,
     "m": 10,
     "d": 7,
@@ -2394,7 +2408,7 @@
     "ticketUrl": "https://islandetickets.com/event/Girlzmansion"
   },
   {
-    "id": 172,
+    "id": 173,
     "y": 2026,
     "m": 10,
     "d": 7,
@@ -2408,7 +2422,7 @@
     "ticketUrl": "https://islandetickets.com/event/WIRED-ENCORE-SCAI-PRODUCTIONS-SATURDAY"
   },
   {
-    "id": 173,
+    "id": 174,
     "y": 2026,
     "m": 10,
     "d": 7,
@@ -2422,7 +2436,7 @@
     "ticketUrl": "https://islandetickets.com/event/DestinationLove"
   },
   {
-    "id": 174,
+    "id": 175,
     "y": 2026,
     "m": 10,
     "d": 7,
@@ -2436,7 +2450,7 @@
     "ticketUrl": "https://islandetickets.com/event/UraveMas"
   },
   {
-    "id": 175,
+    "id": 176,
     "y": 2026,
     "m": 10,
     "d": 7,
@@ -2450,7 +2464,7 @@
     "ticketUrl": "https://islandetickets.com/event/Parangonthebay"
   },
   {
-    "id": 176,
+    "id": 177,
     "y": 2026,
     "m": 10,
     "d": 8,
@@ -2464,7 +2478,7 @@
     "ticketUrl": "https://islandetickets.com/event/Mahalo-2026"
   },
   {
-    "id": 177,
+    "id": 178,
     "y": 2026,
     "m": 10,
     "d": 8,
@@ -2478,7 +2492,7 @@
     "ticketUrl": "https://islandetickets.com/event/Lights-Out-26"
   },
   {
-    "id": 178,
+    "id": 179,
     "y": 2026,
     "m": 10,
     "d": 8,
@@ -2492,7 +2506,7 @@
     "ticketUrl": "https://islandetickets.com/event/SOBS-PRODUCTIONS"
   },
   {
-    "id": 179,
+    "id": 180,
     "y": 2026,
     "m": 10,
     "d": 8,
@@ -2506,7 +2520,7 @@
     "ticketUrl": "https://islandetickets.com/event/WIRED-ENCORE-SCAI-SUNDAY"
   },
   {
-    "id": 180,
+    "id": 181,
     "y": 2026,
     "m": 10,
     "d": 8,
@@ -2520,7 +2534,7 @@
     "ticketUrl": "https://islandetickets.com/event/LoveRendezvous"
   },
   {
-    "id": 181,
+    "id": 182,
     "y": 2026,
     "m": 10,
     "d": 9,
@@ -2534,7 +2548,7 @@
     "ticketUrl": "https://islandetickets.com/event/Country-Brunch-Events"
   },
   {
-    "id": 182,
+    "id": 183,
     "y": 2026,
     "m": 10,
     "d": 9,
@@ -2548,7 +2562,7 @@
     "ticketUrl": "https://islandetickets.com/event/WIRED-ENCORE-SCAI-MONDAY"
   },
   {
-    "id": 183,
+    "id": 184,
     "y": 2026,
     "m": 10,
     "d": 13,
@@ -2562,7 +2576,7 @@
     "ticketUrl": "https://islandetickets.com/event/dislandlinkup1"
   },
   {
-    "id": 184,
+    "id": 185,
     "y": 2026,
     "m": 10,
     "d": 13,
@@ -2576,7 +2590,7 @@
     "ticketUrl": "https://islandetickets.com/event/BG2026"
   },
   {
-    "id": 185,
+    "id": 186,
     "y": 2026,
     "m": 10,
     "d": 14,
@@ -2590,7 +2604,7 @@
     "ticketUrl": "https://islandetickets.com/event/highimpacttea26"
   },
   {
-    "id": 186,
+    "id": 187,
     "y": 2026,
     "m": 10,
     "d": 14,
@@ -2604,7 +2618,7 @@
     "ticketUrl": "https://islandetickets.com/event/FRATISLAND"
   },
   {
-    "id": 187,
+    "id": 188,
     "y": 2026,
     "m": 10,
     "d": 14,
@@ -2618,7 +2632,7 @@
     "ticketUrl": "https://islandetickets.com/event/SoundBath"
   },
   {
-    "id": 188,
+    "id": 189,
     "y": 2026,
     "m": 10,
     "d": 14,
@@ -2632,7 +2646,7 @@
     "ticketUrl": "https://islandetickets.com/event/dislandlinkup2"
   },
   {
-    "id": 189,
+    "id": 190,
     "y": 2026,
     "m": 10,
     "d": 14,
@@ -2646,7 +2660,7 @@
     "ticketUrl": "https://islandetickets.com/event/TheStragglersFOS"
   },
   {
-    "id": 190,
+    "id": 191,
     "y": 2026,
     "m": 5,
     "d": 14,
@@ -2660,7 +2674,7 @@
     "ticketUrl": "https://islandetickets.com/event/D RIGHT PROMOTIONS"
   },
   {
-    "id": 191,
+    "id": 192,
     "y": 2026,
     "m": 10,
     "d": 15,
@@ -2674,7 +2688,7 @@
     "ticketUrl": "https://islandetickets.com/event/Mas-Chalay-Festival"
   },
   {
-    "id": 192,
+    "id": 193,
     "y": 2026,
     "m": 10,
     "d": 15,
@@ -2688,7 +2702,7 @@
     "ticketUrl": "https://islandetickets.com/event/ISLAND-QUEST-2026"
   },
   {
-    "id": 193,
+    "id": 194,
     "y": 2026,
     "m": 10,
     "d": 15,
@@ -2702,7 +2716,7 @@
     "ticketUrl": "https://islandetickets.com/event/Bayside2026"
   },
   {
-    "id": 194,
+    "id": 195,
     "y": 2026,
     "m": 10,
     "d": 15,
@@ -2716,7 +2730,7 @@
     "ticketUrl": "https://islandetickets.com/event/FIL2016"
   },
   {
-    "id": 195,
+    "id": 196,
     "y": 2026,
     "m": 10,
     "d": 15,
@@ -2730,7 +2744,7 @@
     "ticketUrl": "https://islandetickets.com/event/Sunsets2026"
   },
   {
-    "id": 196,
+    "id": 197,
     "y": 2026,
     "m": 10,
     "d": 15,
@@ -2744,7 +2758,7 @@
     "ticketUrl": "https://islandetickets.com/event/SSS-Reggae-RB-With-A-Touch-Of-Soca"
   },
   {
-    "id": 197,
+    "id": 198,
     "y": 2026,
     "m": 10,
     "d": 15,
@@ -2758,7 +2772,7 @@
     "ticketUrl": "https://islandetickets.com/event/itsbeginning5"
   },
   {
-    "id": 198,
+    "id": 199,
     "y": 2026,
     "m": 10,
     "d": 20,
@@ -2772,7 +2786,21 @@
     "ticketUrl": "https://islandetickets.com/event/CouleursVives"
   },
   {
-    "id": 199,
+    "id": 200,
+    "y": 2026,
+    "m": 10,
+    "d": 20,
+    "name": "Pocket Jam",
+    "promoter": "Stuductions.TT",
+    "venue": "Maraval",
+    "cat": "other",
+    "price": "See ticket link",
+    "desc": "",
+    "img": "https://4f14f3f2b2e5fd1c43c0-19fdc616b209d38d8f477bc6e666e66f.ssl.cf1.rackcdn.com/events/pocket-jam-281022-JrS5EhzP6c.jpg",
+    "ticketUrl": "https://islandetickets.com/event/POCKETJAM"
+  },
+  {
+    "id": 201,
     "y": 2026,
     "m": 10,
     "d": 21,
@@ -2786,7 +2814,7 @@
     "ticketUrl": "https://islandetickets.com/event/Dexstar21"
   },
   {
-    "id": 200,
+    "id": 202,
     "y": 2026,
     "m": 10,
     "d": 21,
@@ -2800,7 +2828,7 @@
     "ticketUrl": "https://islandetickets.com/event/FLX-FEST"
   },
   {
-    "id": 201,
+    "id": 203,
     "y": 2026,
     "m": 10,
     "d": 21,
@@ -2814,7 +2842,7 @@
     "ticketUrl": "https://islandetickets.com/event/CLASH"
   },
   {
-    "id": 202,
+    "id": 204,
     "y": 2026,
     "m": 10,
     "d": 21,
@@ -2828,7 +2856,7 @@
     "ticketUrl": "https://islandetickets.com/event/singlepanfinals2027"
   },
   {
-    "id": 203,
+    "id": 205,
     "y": 2026,
     "m": 10,
     "d": 21,
@@ -2842,7 +2870,7 @@
     "ticketUrl": "https://islandetickets.com/event/WeStranded"
   },
   {
-    "id": 204,
+    "id": 206,
     "y": 2026,
     "m": 10,
     "d": 21,
@@ -2856,7 +2884,7 @@
     "ticketUrl": "https://islandetickets.com/event/PC211126"
   },
   {
-    "id": 205,
+    "id": 207,
     "y": 2026,
     "m": 10,
     "d": 21,
@@ -2870,7 +2898,7 @@
     "ticketUrl": "https://islandetickets.com/event/CountryParang"
   },
   {
-    "id": 206,
+    "id": 208,
     "y": 2026,
     "m": 10,
     "d": 21,
@@ -2884,7 +2912,7 @@
     "ticketUrl": "https://islandetickets.com/event/GetBuzzed"
   },
   {
-    "id": 207,
+    "id": 209,
     "y": 2026,
     "m": 10,
     "d": 21,
@@ -2898,7 +2926,7 @@
     "ticketUrl": "https://islandetickets.com/event/D-RIGHT-PROMOTIONS"
   },
   {
-    "id": 208,
+    "id": 210,
     "y": 2026,
     "m": 10,
     "d": 21,
@@ -2912,7 +2940,7 @@
     "ticketUrl": "https://islandetickets.com/event/Tunup"
   },
   {
-    "id": 209,
+    "id": 211,
     "y": 2026,
     "m": 10,
     "d": 22,
@@ -2926,7 +2954,7 @@
     "ticketUrl": "https://islandetickets.com/event/Chacachacare-Island-Hike"
   },
   {
-    "id": 210,
+    "id": 212,
     "y": 2026,
     "m": 10,
     "d": 22,
@@ -2940,7 +2968,7 @@
     "ticketUrl": "https://islandetickets.com/event/DIYClothingEvent"
   },
   {
-    "id": 211,
+    "id": 213,
     "y": 2026,
     "m": 10,
     "d": 22,
@@ -2954,7 +2982,7 @@
     "ticketUrl": "https://islandetickets.com/event/httpsislandeticketscomevents"
   },
   {
-    "id": 212,
+    "id": 214,
     "y": 2026,
     "m": 10,
     "d": 22,
@@ -2968,7 +2996,7 @@
     "ticketUrl": "https://islandetickets.com/event/LetLooseGlow"
   },
   {
-    "id": 213,
+    "id": 215,
     "y": 2026,
     "m": 10,
     "d": 22,
@@ -2982,7 +3010,7 @@
     "ticketUrl": "https://islandetickets.com/event/HOLI-DAYS-One-Holy-Night"
   },
   {
-    "id": 214,
+    "id": 216,
     "y": 2026,
     "m": 10,
     "d": 25,
@@ -2996,7 +3024,7 @@
     "ticketUrl": "https://islandetickets.com/event/thanksrtb"
   },
   {
-    "id": 215,
+    "id": 217,
     "y": 2026,
     "m": 10,
     "d": 27,
@@ -3010,7 +3038,7 @@
     "ticketUrl": "https://islandetickets.com/event/Brown-Sugar"
   },
   {
-    "id": 216,
+    "id": 218,
     "y": 2026,
     "m": 10,
     "d": 27,
@@ -3024,7 +3052,7 @@
     "ticketUrl": "https://islandetickets.com/event/Check-out-this-event-I-found-on-Island-e"
   },
   {
-    "id": 217,
+    "id": 219,
     "y": 2026,
     "m": 10,
     "d": 27,
@@ -3038,7 +3066,7 @@
     "ticketUrl": "https://islandetickets.com/event/Uncharted"
   },
   {
-    "id": 218,
+    "id": 220,
     "y": 2026,
     "m": 10,
     "d": 28,
@@ -3052,7 +3080,7 @@
     "ticketUrl": "https://islandetickets.com/event/HUSTLEACTIVE"
   },
   {
-    "id": 219,
+    "id": 221,
     "y": 2026,
     "m": 10,
     "d": 28,
@@ -3066,7 +3094,7 @@
     "ticketUrl": "https://islandetickets.com/event/socaandparangcoolerfete"
   },
   {
-    "id": 220,
+    "id": 222,
     "y": 2026,
     "m": 10,
     "d": 28,
@@ -3080,7 +3108,7 @@
     "ticketUrl": "https://islandetickets.com/event/ParangUnderTheLanterns"
   },
   {
-    "id": 221,
+    "id": 223,
     "y": 2026,
     "m": 10,
     "d": 28,
@@ -3094,7 +3122,7 @@
     "ticketUrl": "https://islandetickets.com/event/The-Renny-Toolsie-Foundation"
   },
   {
-    "id": 222,
+    "id": 224,
     "y": 2026,
     "m": 10,
     "d": 28,
@@ -3108,7 +3136,7 @@
     "ticketUrl": "https://islandetickets.com/event/httpsislandeticketscomevent280701"
   },
   {
-    "id": 223,
+    "id": 225,
     "y": 2026,
     "m": 10,
     "d": 28,
@@ -3122,7 +3150,7 @@
     "ticketUrl": "https://islandetickets.com/event/ZUNGUSHA-Sound-and-Soul"
   },
   {
-    "id": 224,
+    "id": 226,
     "y": 2026,
     "m": 10,
     "d": 28,
@@ -3136,7 +3164,7 @@
     "ticketUrl": "https://islandetickets.com/event/Aluau"
   },
   {
-    "id": 225,
+    "id": 227,
     "y": 2026,
     "m": 10,
     "d": 28,
@@ -3150,7 +3178,7 @@
     "ticketUrl": "https://islandetickets.com/event/N2R-Tiki"
   },
   {
-    "id": 226,
+    "id": 228,
     "y": 2026,
     "m": 10,
     "d": 28,
@@ -3164,7 +3192,7 @@
     "ticketUrl": "https://islandetickets.com/event/LBD"
   },
   {
-    "id": 227,
+    "id": 229,
     "y": 2026,
     "m": 10,
     "d": 28,
@@ -3178,7 +3206,7 @@
     "ticketUrl": "https://islandetickets.com/event/lovewithoutlimits"
   },
   {
-    "id": 228,
+    "id": 230,
     "y": 2026,
     "m": 10,
     "d": 28,
@@ -3192,7 +3220,7 @@
     "ticketUrl": "https://islandetickets.com/event/WetZone"
   },
   {
-    "id": 229,
+    "id": 231,
     "y": 2026,
     "m": 10,
     "d": 28,
@@ -3206,7 +3234,7 @@
     "ticketUrl": "https://islandetickets.com/event/Garden-of-Secrets"
   },
   {
-    "id": 230,
+    "id": 232,
     "y": 2026,
     "m": 10,
     "d": 29,
@@ -3220,7 +3248,7 @@
     "ticketUrl": "https://islandetickets.com/event/A-Taste-of-Moruga-Tour"
   },
   {
-    "id": 231,
+    "id": 233,
     "y": 2026,
     "m": 10,
     "d": 29,
@@ -3234,7 +3262,7 @@
     "ticketUrl": "https://islandetickets.com/event/Island-brunch"
   },
   {
-    "id": 232,
+    "id": 234,
     "y": 2026,
     "m": 10,
     "d": 29,
@@ -3248,7 +3276,7 @@
     "ticketUrl": "https://islandetickets.com/event/Blueaffair"
   },
   {
-    "id": 233,
+    "id": 235,
     "y": 2026,
     "m": 10,
     "d": 29,
@@ -3262,7 +3290,7 @@
     "ticketUrl": "https://islandetickets.com/event/Cbm-events"
   },
   {
-    "id": 234,
+    "id": 236,
     "y": 2026,
     "m": 10,
     "d": 29,
@@ -3276,7 +3304,7 @@
     "ticketUrl": "https://islandetickets.com/event/saunabb"
   },
   {
-    "id": 235,
+    "id": 237,
     "y": 2026,
     "m": 10,
     "d": 29,
@@ -3290,7 +3318,7 @@
     "ticketUrl": "https://islandetickets.com/event/Houseparang"
   },
   {
-    "id": 236,
+    "id": 238,
     "y": 2026,
     "m": 11,
     "d": 4,
@@ -3304,7 +3332,7 @@
     "ticketUrl": "https://islandetickets.com/event/cloud9xendlesseventsmistletoeNMN"
   },
   {
-    "id": 237,
+    "id": 239,
     "y": 2026,
     "m": 11,
     "d": 5,
@@ -3318,7 +3346,7 @@
     "ticketUrl": "https://islandetickets.com/event/Bourgeois"
   },
   {
-    "id": 238,
+    "id": 240,
     "y": 2026,
     "m": 11,
     "d": 5,
@@ -3332,7 +3360,7 @@
     "ticketUrl": "https://islandetickets.com/event/TAF14"
   },
   {
-    "id": 239,
+    "id": 241,
     "y": 2026,
     "m": 11,
     "d": 5,
@@ -3346,7 +3374,7 @@
     "ticketUrl": "https://islandetickets.com/event/CheersIIThenandNow"
   },
   {
-    "id": 240,
+    "id": 242,
     "y": 2026,
     "m": 11,
     "d": 5,
@@ -3360,7 +3388,7 @@
     "ticketUrl": "https://islandetickets.com/event/Toxic-love"
   },
   {
-    "id": 241,
+    "id": 243,
     "y": 2026,
     "m": 11,
     "d": 5,
@@ -3374,7 +3402,7 @@
     "ticketUrl": "https://islandetickets.com/event/Lights-off-lost-at-sea"
   },
   {
-    "id": 242,
+    "id": 244,
     "y": 2026,
     "m": 11,
     "d": 5,
@@ -3388,7 +3416,7 @@
     "ticketUrl": "https://islandetickets.com/event/Nauti-Night"
   },
   {
-    "id": 243,
+    "id": 245,
     "y": 2026,
     "m": 11,
     "d": 6,
@@ -3402,7 +3430,7 @@
     "ticketUrl": "https://islandetickets.com/event/Dirtysantajouvertii"
   },
   {
-    "id": 244,
+    "id": 246,
     "y": 2026,
     "m": 11,
     "d": 6,
@@ -3416,7 +3444,7 @@
     "ticketUrl": "https://islandetickets.com/event/rhand-ccp-2026"
   },
   {
-    "id": 245,
+    "id": 247,
     "y": 2026,
     "m": 11,
     "d": 6,
@@ -3430,7 +3458,7 @@
     "ticketUrl": "https://islandetickets.com/event/s26"
   },
   {
-    "id": 246,
+    "id": 248,
     "y": 2026,
     "m": 11,
     "d": 6,
@@ -3444,7 +3472,7 @@
     "ticketUrl": "https://islandetickets.com/event/LoveBoat26"
   },
   {
-    "id": 247,
+    "id": 249,
     "y": 2026,
     "m": 11,
     "d": 6,
@@ -3458,45 +3486,17 @@
     "ticketUrl": "https://islandetickets.com/event/Rum-Brunch-Christmas-Soiree"
   },
   {
-    "id": 248,
-    "y": 2026,
-    "m": 11,
-    "d": 12,
-    "name": "Members Only Yacht Ride Raft Up",
-    "promoter": "NonStopEvents",
-    "venue": "Scotland Bay, Trinidad",
-    "cat": "boat",
-    "price": "See ticket link",
-    "desc": "",
-    "img": "https://4f14f3f2b2e5fd1c43c0-19fdc616b209d38d8f477bc6e666e66f.ssl.cf1.rackcdn.com/events/members-only-yacht-ride-raft-up-281004-mh9HQqQJBN.jpg",
-    "ticketUrl": "https://islandetickets.com/event/httpislandeticketscomcomeventmembers-onl"
-  },
-  {
-    "id": 249,
-    "y": 2026,
-    "m": 11,
-    "d": 12,
-    "name": "Small Conventional Band Semi-Finals: National Panorama 2027",
-    "promoter": "Pan Trinbago Inc",
-    "venue": "Grand Stand, Queen’s Park Savannah, Port of Spain",
-    "cat": "other",
-    "price": "See ticket link",
-    "desc": "",
-    "img": "https://4f14f3f2b2e5fd1c43c0-19fdc616b209d38d8f477bc6e666e66f.ssl.cf1.rackcdn.com/events/small-conventional-band-semi-finals-national-panorama-2027-280660-QL7YlQxSjf.jpg",
-    "ticketUrl": "https://islandetickets.com/event/smallsemis2027"
-  },
-  {
     "id": 250,
     "y": 2026,
     "m": 11,
     "d": 12,
-    "name": "Paint Parang & Proseco",
-    "promoter": "Sibs Promotion",
-    "venue": "Tanty Eileen's Place...Mazanilla Road, Mayaro",
+    "name": "The OBX",
+    "promoter": "STM Events",
+    "venue": "DDI, Trinidad",
     "cat": "other",
     "price": "See ticket link",
     "desc": "",
-    "img": "https://4f14f3f2b2e5fd1c43c0-19fdc616b209d38d8f477bc6e666e66f.ssl.cf1.rackcdn.com/events/paint-parang-proseco-280862-KjSI8QrSEA.jpg",
-    "ticketUrl": "https://islandetickets.com/event/Paint-Parang-Proseco"
+    "img": "https://4f14f3f2b2e5fd1c43c0-19fdc616b209d38d8f477bc6e666e66f.ssl.cf1.rackcdn.com/events/the-obx-281002-puoJvcDq55.jpg",
+    "ticketUrl": "https://islandetickets.com/event/the-obx"
   }
 ]
