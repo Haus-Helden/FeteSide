@@ -21,8 +21,10 @@ const fs = require('fs');
 
 const SOURCE_HOME = 'https://islandetickets.com/';
 const OUTPUT_FILE = 'fetes.json';
-const MAX_EVENTS = 250;       // raised from 80 — the old cap stopped the scraper in
-                               // early October, before it ever reached Carnival 2027 dates
+const MAX_EVENTS = 1000;      // safety ceiling only. The homepage lists ~450+ events running
+                               // into late 2027, and events are in date order, so a low cap
+                               // silently chops off the NEWEST dates (Carnival 2027). Keep this
+                               // well above the real total.
 const REQUEST_DELAY_MS = 400; // small pause between requests so we don't hammer the site
 
 const MONTHS = ['jan','feb','mar','apr','may','jun','jul','aug','sep','oct','nov','dec'];
@@ -79,6 +81,8 @@ function inferCategory(name, desc){
 // ---------- events too (Toronto, Brooklyn, Miami, London, etc). We only ----------
 // ---------- want events actually happening in Trinidad & Tobago. ----------
 
+// Known T&T areas/venue keywords — expand this list as you spot real local
+// venues that get missed. Includes recurring venue names, not just towns.
 const TT_KEYWORDS = [
   'trinidad', 'tobago', 'port of spain', 'san fernando', 'chaguanas',
   'arima', 'point fortin', 'chaguaramas', 'diego martin', 'trincity',
@@ -99,6 +103,8 @@ const TT_KEYWORDS = [
   'pigeon point', 'lowlands', 'mount irvine', 'bon accord'
 ];
 
+// Common diaspora/foreign markers — if any of these show up, it's almost
+// certainly NOT a Trinidad event, regardless of what else matches.
 const FOREIGN_KEYWORDS = [
   'toronto', 'brampton', 'mississauga', 'scarborough, on', 'ajax, on', 'ontario',
   'brooklyn', 'new york', 'nyc', 'queens,', 'manhattan', 'bronx',
@@ -110,15 +116,22 @@ const FOREIGN_KEYWORDS = [
   'barbados', 'providenciales', 'turks and caicos', 'turks & caicos'
 ];
 
+// Checks the VENUE first (ground truth for where the event actually is),
+// and only falls back to the event NAME if the venue itself is ambiguous.
+// This matters because Trinidad fetes sometimes use foreign city names as
+// party THEMES (e.g. "Miami Beach Blue" happening in Chaguaramas) — so a
+// name-first check would wrongly reject real local events.
 function isTrinidadEvent(name, venue){
   const venueText = venue.toLowerCase();
   if(FOREIGN_KEYWORDS.some(kw => venueText.includes(kw))) return false;
   if(TT_KEYWORDS.some(kw => venueText.includes(kw))) return true;
 
+  // Venue didn't clearly say either way — check the event name next.
   const nameText = name.toLowerCase();
   if(FOREIGN_KEYWORDS.some(kw => nameText.includes(kw))) return false;
   if(TT_KEYWORDS.some(kw => nameText.includes(kw))) return true;
 
+  // Still ambiguous — include by default but flag it for manual review.
   console.warn(`  ? Couldn't confirm location for "${name}" @ "${venue}" — included by default, please verify.`);
   return true;
 }
@@ -127,6 +140,12 @@ function isTrinidadEvent(name, venue){
 
 async function getEventList(){
   const html = await fetchText(SOURCE_HOME);
+
+  // The homepage groups events under month headings, then lists each
+  // event as a link whose text looks like:
+  //   "12th King's Conference 2026 Hosted by Men of Purpose @ Venue 10:00am - 4:00pm"
+  // We walk the raw HTML in order, tracking which month heading we've
+  // most recently passed, so each event inherits the right month/year.
 
   const monthHeadingRe = /(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*[^0-9<]{0,15}(\d{4})/g;
   const eventLinkRe = /<a[^>]+href="([^"]*\/event\/[^"]+)"[^>]*>([\s\S]*?)<\/a>/g;
@@ -151,13 +170,15 @@ async function getEventList(){
       currentMonth = marker.m;
       continue;
     }
-    if(currentYear === null) continue;
+    if(currentYear === null) continue; // haven't seen a month heading yet, skip
 
+    // marker.raw looks like: "12th Some Event Name Hosted by Promoter @ Venue 7:00pm - 11:00pm Generic placeholder image"
     const dayMatch = marker.raw.match(/^(\d{1,2})(?:st|nd|rd|th)?\s+/);
     if(!dayMatch) continue;
     const day = parseInt(dayMatch[1], 10);
     let rest = marker.raw.slice(dayMatch[0].length);
 
+    // strip the trailing "Generic placeholder image" / similar alt-text noise
     rest = rest.replace(/\s*(Generic placeholder image)?\s*$/i, '');
 
     const detailMatch = rest.match(/^(.*?)\s+Hosted by\s+(.*?)\s+@\s+(.*?)\s+\d{1,2}:\d{2}(?:am|pm)\s*-\s*\d{1,2}:\d{2}(?:am|pm)/i);
@@ -181,7 +202,10 @@ async function getEventList(){
       d: day
     });
 
-    if(events.length >= MAX_EVENTS) break;
+    if(events.length >= MAX_EVENTS){
+      console.warn(`!! Hit MAX_EVENTS (${MAX_EVENTS}) — later events were NOT scraped. Raise the cap.`);
+      break;
+    }
   }
 
   return events;
@@ -252,13 +276,31 @@ async function main(){
     ticketUrl: ev.url
   }));
 
+  // SAFETY NET: if something went badly wrong upstream (site down, page
+  // redesigned, zero events parsed) don't overwrite a working fetes.json
+  // with an empty one — better to keep yesterday's data live than to
+  // blank the whole calendar.
   if(fetes.length === 0){
     console.error('No events parsed — leaving the existing fetes.json untouched.');
     process.exit(1);
   }
 
+  // Keep the file in date order so it's easy to eyeball, then re-number ids.
+  fetes.sort((a,b) => (a.y - b.y) || (a.m - b.m) || (a.d - b.d));
+  fetes.forEach((f, i) => { f.id = i + 1; });
+
   fs.writeFileSync(OUTPUT_FILE, JSON.stringify(fetes, null, 2));
   console.log(`Wrote ${fetes.length} events to ${OUTPUT_FILE}`);
+
+  // Per-month coverage report — check this in the Actions log to confirm
+  // 2027 months are present.
+  const counts = {};
+  for(const f of fetes){
+    const key = `${f.y}-${String(f.m+1).padStart(2,'0')}`;
+    counts[key] = (counts[key] || 0) + 1;
+  }
+  console.log('Events per month:');
+  Object.keys(counts).sort().forEach(k => console.log(`  ${k}: ${counts[k]}`));
 }
 
 main().catch(err => {
