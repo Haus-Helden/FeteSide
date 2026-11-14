@@ -428,7 +428,16 @@
     border-bottom:1px solid rgba(255,255,255,0.1);
     font-size:14px;
   }
-  .sheet-item .remove{color:var(--pink); font-size:12px; font-weight:700;}
+  .sheet-item .remove{color:var(--pink); font-size:12px; font-weight:700; padding-left:12px; cursor:pointer;}
+  .sheet-item .si-main{min-width:0; flex:1;}
+  .si-title{font-weight:700;}
+  .si-sub{color:var(--cloud-dim); font-size:12.5px; margin-top:2px;}
+  .si-links{display:flex; gap:12px; flex-wrap:wrap; margin-top:4px; font-size:12px;}
+  .si-links a{color:#F2B705; font-weight:700; text-decoration:none;}
+  .si-clash{color:var(--pink); font-weight:600;}
+  .fete-when{font-weight:700; color:#3a3552;}
+  .detail-where{font-size:13px; margin:6px 0;}
+  .detail-where a{color:#B3237A; font-weight:700;}
   .empty-note{color:var(--cloud-dim); font-size:13.5px; padding:20px 0;}
   .share-box{
     margin-top:16px;
@@ -549,6 +558,22 @@ const state = {
 };
 
 function dateKey(f){ return `${f.y}-${f.m}-${f.d}`; }
+
+function esc(s){
+  return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+// A saved fete is remembered by a STABLE key (its ticket page address + date),
+// not by its list position, because the scraper renumbers the list every day.
+function makeKey(f){
+  const path = (f.ticketUrl || '').replace(/^https?:\/\/[^/]+/i,'');
+  const generic = !path || /^\/?event\/?$/i.test(path);
+  const raw = generic ? `${f.name} ${f.y}-${f.m}-${f.d}` : `${path} ${f.y}-${f.m}-${f.d}`;
+  return raw.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+}
+function mapUrl(f){
+  return 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent((f.venue||'') + ', Trinidad and Tobago');
+}
+function whenWhere(f){ return [f.time, f.venue].filter(Boolean).join(' · '); }
 function fmtDate(y,m,d){
   return new Date(y,m,d).toLocaleDateString('en-US',{weekday:'short', month:'short', day:'numeric'});
 }
@@ -612,7 +637,7 @@ function renderListView(){
 function makeFeteCard(f, startOpen){
   const card = document.createElement("div");
   card.className = `fete-card cat-${f.cat}`;
-  const isSaved = state.saved.has(f.id);
+  const isSaved = state.saved.has(f.key);
   card.innerHTML = `
     <div class="stripe"></div>
     <div class="fete-body">
@@ -621,18 +646,20 @@ function makeFeteCard(f, startOpen){
           <img class="thumb" src="${f.img}" alt="${f.name} flyer">
           <div>
             <p class="fete-name">${f.name}</p>
+            ${f.time ? `<p class="fete-meta fete-when">${esc(f.time)}</p>` : ''}
             <p class="fete-meta">${f.promoter} &middot; ${f.venue}</p>
             <span class="cat-label">${catLabels[f.cat]}</span>
           </div>
         </div>
-        <button class="save-btn ${isSaved?'saved':''}" data-id="${f.id}">${isSaved?'&hearts;':'&#9825;'}</button>
+        <button class="save-btn ${isSaved?'saved':''}" data-key="${esc(f.key)}">${isSaved?'&hearts;':'&#9825;'}</button>
       </div>
       <div class="fete-detail" data-detail="${f.id}">
         <div class="fete-detail-inner">
           <img class="detail-flyer" src="${f.img}" alt="${f.name} flyer">
           <p>${f.desc}</p>
           <p class="price">${f.price}</p>
-          <a class="ticket-link" href="#" onclick="event.stopPropagation()">Get tickets &rarr;</a>
+          <p class="detail-where">${f.time ? esc(f.time) + ' &middot; ' : ''}${esc(f.venue)} &middot; <a href="${esc(mapUrl(f))}" target="_blank" rel="noopener" onclick="event.stopPropagation()">Map</a></p>
+          <a class="ticket-link" href="${esc(f.ticketUrl || '#')}" target="_blank" rel="noopener" onclick="event.stopPropagation()">Get tickets &rarr;</a>
         </div>
       </div>
     </div>
@@ -648,11 +675,22 @@ function makeFeteCard(f, startOpen){
 }
 
 // ---------- persistence: remember saved fetes across visits, same device ----------
-const SAVED_KEY = 'feteside-saved-ids';
+// We store a small COPY of each saved fete (name, date, time, venue, link), so
+// the list still shows correctly even if the source site later removes the event.
+const SAVED_KEY = 'feteside-saved-v2';
+let savedData = {};        // key -> snapshot of the fete
+let FETE_BY_KEY = {};      // key -> live fete from fetes.json
+
+function snapshot(f){
+  return {key:f.key, name:f.name, promoter:f.promoter, venue:f.venue, time:f.time||'',
+          y:f.y, m:f.m, d:f.d, cat:f.cat, price:f.price||'', ticketUrl:f.ticketUrl||''};
+}
 
 function persistSaved(){
   try{
-    localStorage.setItem(SAVED_KEY, JSON.stringify([...state.saved]));
+    const out = {};
+    state.saved.forEach(k=>{ if(savedData[k]) out[k] = savedData[k]; });
+    localStorage.setItem(SAVED_KEY, JSON.stringify(out));
   }catch(err){
     // localStorage can fail in rare cases (private browsing, storage full) —
     // fine to just skip saving rather than break the app over it.
@@ -663,18 +701,36 @@ function persistSaved(){
 function loadPersistedSaved(){
   try{
     const raw = localStorage.getItem(SAVED_KEY);
-    if(raw) state.saved = new Set(JSON.parse(raw));
+    if(raw){
+      savedData = JSON.parse(raw) || {};
+      state.saved = new Set(Object.keys(savedData));
+    }
   }catch(err){
     console.warn('Could not load a previously saved list:', err);
   }
+}
+
+function getSavedFetes(){
+  return [...state.saved]
+    .map(k => FETE_BY_KEY[k] || savedData[k])
+    .filter(Boolean)
+    .sort((a,b)=> new Date(a.y,a.m,a.d) - new Date(b.y,b.m,b.d));
 }
 
 function attachCardHandlers(container){
   container.querySelectorAll(".save-btn").forEach(btn=>{
     btn.addEventListener("click", (e)=>{
       e.stopPropagation();
-      const id = parseInt(btn.dataset.id);
-      if(state.saved.has(id)) state.saved.delete(id); else state.saved.add(id);
+      const key = btn.dataset.key;
+      if(state.saved.has(key)){
+        state.saved.delete(key);
+        delete savedData[key];
+      } else {
+        const f = FETE_BY_KEY[key];
+        if(!f) return;
+        state.saved.add(key);
+        savedData[key] = snapshot(f);
+      }
       persistSaved();
       renderRoot();
     });
@@ -869,32 +925,52 @@ function renderSheet(){
     titleEl.textContent = "My Carnival";
     subEl.textContent = "Your saved fetes, ready to share.";
     copyBtn.textContent = "Copy my Carnival list";
-    const savedFetes = FETES.filter(f=>state.saved.has(f.id)).sort((a,b)=> new Date(a.y,a.m,a.d) - new Date(b.y,b.m,b.d));
+    const savedFetes = getSavedFetes();
 
     if(savedFetes.length === 0){
       listEl.innerHTML = '<p class="empty-note">Nothing saved yet — tap the heart on any fete to build your season here.</p>';
       shareSection.style.display = "none";
       return;
     }
+    const perDay = {};
+    savedFetes.forEach(f=>{ const k = dateKey(f); perDay[k] = (perDay[k]||0) + 1; });
+
     listEl.innerHTML = savedFetes.map(f=>`
       <div class="sheet-item">
-        <span>${fmtDate(f.y,f.m,f.d)} &middot; ${f.name}</span>
-        <span class="remove" data-id="${f.id}">Remove</span>
+        <div class="si-main">
+          <div class="si-title">${fmtDate(f.y,f.m,f.d)} &middot; ${esc(f.name)}</div>
+          <div class="si-sub">${esc(whenWhere(f))}</div>
+          <div class="si-links">
+            <a href="${esc(mapUrl(f))}" target="_blank" rel="noopener">Map</a>
+            ${f.ticketUrl ? `<a href="${esc(f.ticketUrl)}" target="_blank" rel="noopener">Tickets</a>` : ''}
+            ${perDay[dateKey(f)] > 1 ? '<span class="si-clash">Same day as another saved fete</span>' : ''}
+          </div>
+        </div>
+        <span class="remove" data-key="${esc(f.key)}">Remove</span>
       </div>
     `).join("");
     listEl.querySelectorAll(".remove").forEach(el=>{
       el.addEventListener("click", ()=>{
-        state.saved.delete(parseInt(el.dataset.id));
+        const key = el.dataset.key;
+        state.saved.delete(key);
+        delete savedData[key];
         persistSaved();
         renderRoot();
         renderSheet();
       });
     });
     document.getElementById("shareText").textContent =
-      "My Carnival 2027:\n" + savedFetes.map(f=>`${fmtDate(f.y,f.m,f.d)} - ${f.name} (${f.promoter})`).join("\n");
+      "My Carnival 2027\n(All times are Trinidad time, AST)\n\n" +
+      savedFetes.map(f=>[
+        fmtDate(f.y,f.m,f.d) + ' - ' + f.name,
+        f.time ? '  Time: ' + f.time : '',
+        '  Where: ' + f.venue,
+        '  Map: ' + mapUrl(f),
+        f.ticketUrl ? '  Tickets: ' + f.ticketUrl : ''
+      ].filter(Boolean).join("\n")).join("\n\n");
     shareSection.style.display = "block";
     refreshShareImage(
-      savedFetes.map(f=>({name:f.name, cat:f.cat, dateLabel:fmtDate(f.y,f.m,f.d)})),
+      savedFetes.map(f=>({name:f.name, cat:f.cat, dateLabel:fmtDate(f.y,f.m,f.d), sub:whenWhere(f)})),
       "MY CARNIVAL",
       "Carnival 2027 Season"
     );
@@ -909,16 +985,20 @@ function renderSheet(){
 
     listEl.innerHTML = monthFetes.map(f=>`
       <div class="sheet-item">
-        <span>${fmtDate(f.y,f.m,f.d)} &middot; ${f.name}</span>
+        <div class="si-main">
+          <div class="si-title">${fmtDate(f.y,f.m,f.d)} &middot; ${esc(f.name)}</div>
+          <div class="si-sub">${esc(whenWhere(f))}</div>
+        </div>
         <span style="color:var(--cloud-dim); font-size:11px;">${catLabels[f.cat]}</span>
       </div>
     `).join("");
     document.getElementById("shareText").textContent =
-      `${monthLabel(state.calYear, state.calMonth)} Fete Schedule:\n` +
-      monthFetes.map(f=>`${fmtDate(f.y,f.m,f.d)} - ${f.name} (${f.promoter}) - ${catLabels[f.cat]}`).join("\n");
+      `${monthLabel(state.calYear, state.calMonth)} Fete Schedule\n(All times are Trinidad time, AST)\n\n` +
+      monthFetes.map(f=>`${fmtDate(f.y,f.m,f.d)} - ${f.name} (${f.promoter}) - ${catLabels[f.cat]}` +
+        (f.time ? `\n  Time: ${f.time}` : '') + `\n  Where: ${f.venue}`).join("\n\n");
     shareSection.style.display = "block";
     refreshShareImage(
-      monthFetes.map(f=>({name:f.name, cat:f.cat, dateLabel:fmtDate(f.y,f.m,f.d)})),
+      monthFetes.map(f=>({name:f.name, cat:f.cat, dateLabel:fmtDate(f.y,f.m,f.d), sub:whenWhere(f)})),
       monthLabel(state.calYear, state.calMonth).toUpperCase(),
       "Fete Schedule"
     );
@@ -967,7 +1047,7 @@ async function buildShareCard(title, subtitle, items){
   ctx.strokeStyle = 'rgba(255,255,255,0.15)';
   ctx.beginPath(); ctx.moveTo(48,204); ctx.lineTo(W-48,204); ctx.stroke();
 
-  const maxRows = 10;
+  const maxRows = 9;
   const shown = items.slice(0, maxRows);
   let y = 258;
   shown.forEach(item=>{
@@ -984,7 +1064,15 @@ async function buildShareCard(title, subtitle, items){
     if(name.length > 30) name = name.slice(0,28) + '…';
     ctx.fillText(name, 86, y+18);
 
-    y += 76;
+    if(item.sub){
+      ctx.fillStyle = '#B9B4D0';
+      ctx.font = "20px 'Work Sans', sans-serif";
+      let sub = item.sub;
+      if(sub.length > 46) sub = sub.slice(0,44) + '…';
+      ctx.fillText(sub, 86, y+46);
+    }
+
+    y += 96;
   });
 
   if(items.length > maxRows){
@@ -1069,6 +1157,12 @@ async function loadFetes(){
     console.error('Could not load fetes.json:', err);
     FETES = [];
   }
+  // Give every fete a stable key, and refresh the copies of saved fetes
+  // (so a changed time or venue on the source site updates your list).
+  FETE_BY_KEY = {};
+  FETES.forEach(f=>{ f.key = makeKey(f); FETE_BY_KEY[f.key] = f; });
+  state.saved.forEach(k=>{ if(FETE_BY_KEY[k]) savedData[k] = snapshot(FETE_BY_KEY[k]); });
+  persistSaved();
   state.loading = false;
   renderRoot();
 }
